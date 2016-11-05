@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Philosopher);
+body {
+  width: 100%;
+  margin: 0;
+  background: hsla(0, 0%, 95%, 1);
+}
+.card {
+  width: 350px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  display: flex;
+}
+.card-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+.card-content {
+  padding: 20px;
+}
+.card-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+.card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+}
+.card-link a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+.card-link a:hover {
+  color: #0090aa;
+}
+.main {
+  display: flex;
+}
+.main section {
+  flex: 1;
+  margin: 10px;
+  border-radius: 5px;
+
+  padding: 15px;
+}
+.main h1 {
+  color: #E6AC27;
+  font-size: 1.5rem;
+}
+.main p {
+  margin-top: 10px;
+}
+h1
+{
+    font-size: 2.5em;
+
+    margin: 2em 0 .5em;
+}
+h2
+{
+    margin-bottom: 3em;
+}
+em,
+strong
+{
+    font-weight: 700;
+}
