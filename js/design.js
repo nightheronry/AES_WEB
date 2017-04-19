@@ -255,7 +255,7 @@ function run() {
 }
 run();
 
-window.addEventListener('resize',function(){
+document.getElementById("canv").addEventListener('resize',function(){
   c.width = window.innerWidth;
   c.height = window.innerHeight-70;
 }, false);
