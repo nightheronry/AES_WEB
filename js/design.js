@@ -238,12 +238,12 @@ function rnd(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-window.addEventListener('mousemove', function(e) {
+document.getElementById("canv").addEventListener('mousemove', function(e) {
   var np = nPart();
   if (np) np.res_(e.clientX, e.clientY);
 }, false);
 
-window.addEventListener('touchmove', function(e) {
+document.getElementById("canv").addEventListener('touchmove', function(e) {
   e.preventDefault();
   var np = nPart();
   if (np)  np.res_(e.touches[0].clientX, e.touches[0].clientY);
