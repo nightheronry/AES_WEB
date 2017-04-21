@@ -3,69 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>AES DEMO</title>
-    <link rel=stylesheet type="text/css" href="css/labyrinth.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/aes.js"></script>
-    <script src="js/design.js"></script>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <script>
-    $(document).ready(function(){
-
-      var str = "你好嗎?";
-      $("#submit").click(function(){
-
-          AES_Init();
-          str = $("#text").val();
-          console.log("Text:"+str);
-          AES(str);
-      });
-    });
-
-      function AES(str) {
-        var start = new Date;
-        var block = new Array(16);
-        block = hexEncode(str, block);
-        console.log("hexEncode:" + block);
-        var hex_text = block;
-        var key = new Array(32);
-        for(var i = 0; i < 32; i++)
-          key[i] = Math.floor((Math.random() * 100) + 1);
-        console.log("key:"+ key);
-        var original_key = key.toString();
-        AES_ExpandKey(key);
-        console.log("ExpandKey:"+key);
-        block = AES_Encrypt(block, key);
-        var Ciphertext = block.toString();
-        AES_Decrypt(block, key);
-        var after_Decrypt = hexDecode(block);
-        console.log("textDecrypt:" + after_Decrypt);
-        console.log("hexDecode: " + after_Decrypt.hexDecode())
-        AES_Done();
-        changesparklist();
-        function changesparklist(){
-            $(".demo_view").empty();
-            $(".demo_view").append("<p>Plain text:"+str+"</p>");
-            $(".demo_view").append("<p>HexEncode text:"+hex_text+"</p>");
-            $(".demo_view").append("<p>Key:"+original_key+"</p>");
-            $(".demo_view").append("<p>Expanded Key:"+key+"</p>");
-            $(".demo_view").append("<p>Ciphertext:"+Ciphertext+"</p>");
-            $(".demo_view").append("<p>Decryption:"+block+"</p>");
-            $(".demo_view").append("<p>HexDecode text:"+after_Decrypt.hexDecode()+"</p>");
-$(".demo_view").append("<p>Running Time:"+(new Date - start) / 1000 + " Seconds</p>");
-            $("#myModal").modal("show");
-        }
-      }
-
-
-    </script>
   </head>
   <body style="background-color:#AAAAAA">
     <canvas id='canv'></canvas>
@@ -246,10 +184,80 @@ $(".demo_view").append("<p>Running Time:"+(new Date - start) / 1000 + " Seconds<
 
         </div>
         </div>
-        <footer class="footer">
-        <div class="container">
-          <span class="footer-bland">&copy;2016. Design by Pofang Hsu</span>
-        </div>
-      </footer>
+        <div class="divide60"></div>
+        <div class="divide60"></div>
+        <footer>
+          <div class="row">
+              <div class="col-md-12 text-center">
+                    <div class="footer-btm" style="background-color: #ffffff;">
+                          <span class="footer-bland">&copy;2016. Design by Po-fang Hsu</span>
+                    </div>
+              </div>
+          </div>
+        </footer>
+        
     </body>
+  <link rel=stylesheet type="text/css" href="css/labyrinth.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="js/aes.js"></script>
+  <script src="js/design.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      var str = "你好嗎?";
+      $("#submit").click(function(){
+
+          AES_Init();
+          str = $("#text").val();
+          console.log("Text:"+str);
+          AES(str);
+      });
+    });
+
+      function AES(str) {
+        var start = new Date;
+        var block = new Array(16);
+        block = hexEncode(str, block);
+        console.log("hexEncode:" + block);
+        var hex_text = block;
+        var key = new Array(32);
+        for(var i = 0; i < 32; i++)
+          key[i] = Math.floor((Math.random() * 100) + 1);
+        console.log("key:"+ key);
+        var original_key = key.toString();
+        AES_ExpandKey(key);
+        console.log("ExpandKey:"+key);
+        block = AES_Encrypt(block, key);
+        var Ciphertext = block.toString();
+        AES_Decrypt(block, key);
+        var after_Decrypt = hexDecode(block);
+        console.log("textDecrypt:" + after_Decrypt);
+        console.log("hexDecode: " + after_Decrypt.hexDecode())
+        AES_Done();
+        changesparklist();
+        function changesparklist(){
+            $(".demo_view").empty();
+            $(".demo_view").append("<p>Plain text:"+str+"</p>");
+            $(".demo_view").append("<p>HexEncode text:"+hex_text+"</p>");
+            $(".demo_view").append("<p>Key:"+original_key+"</p>");
+            $(".demo_view").append("<p>Expanded Key:"+key+"</p>");
+            $(".demo_view").append("<p>Ciphertext:"+Ciphertext+"</p>");
+            $(".demo_view").append("<p>Decryption:"+block+"</p>");
+            $(".demo_view").append("<p>HexDecode text:"+after_Decrypt.hexDecode()+"</p>");
+$(".demo_view").append("<p>Running Time:"+(new Date - start) / 1000 + " Seconds</p>");
+            $("#myModal").modal("show");
+        }
+      }
+
+
+    </script>
 </html>
